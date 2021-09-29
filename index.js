@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import postRoutes from './routes/posts.js';
+import userRoutes from './routes/user.js';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(express.urlencoded({ limit: '30mb', extended: true }));
 app.use(cors());
 
 app.use('/posts', postRoutes);
+app.use('/users', userRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello my memories api');
